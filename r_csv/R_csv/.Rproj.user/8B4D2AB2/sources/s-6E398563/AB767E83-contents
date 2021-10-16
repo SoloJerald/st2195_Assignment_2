@@ -1,0 +1,66 @@
+library("rvest")
+url <- "http://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_population"
+population <- url %>%
+  html() %>%
+  html_nodes(xpath='//*[@id="mw-content-text"]/table[1]') %>%
+  html_table()
+population <- population[[1]]
+
+head(population)
+
+##   Rank innthe FiftynStates,n2014
+## 1                           !000001
+## 2                           !000002
+## 3                           !000003
+## 4                           !000004
+## 5                           !000005
+## 6                           !000006
+##   Rank in allnstatesn& terri-ntories,n2010 State or territory
+## 1                                      !000001         California
+## 2                                      !000002              Texas
+## 3                                      !000004            Florida
+## 4                                      !000003           New York
+## 5                                      !000005           Illinois
+## 6                                      !000006       Pennsylvania
+##   Population estimate fornJuly 1, 2014 Census population,nApril 1, 2010
+## 1                            38,802,500                        37,253,956
+## 2                            26,956,958                        25,145,561
+## 3                            19,893,297                        18,801,310
+## 4                            19,746,227                        19,378,102
+## 5                            12,880,580                        12,830,632
+## 6                            12,787,209                        12,702,379
+##   Census population,nApril 1, 2000 Seats inU.S. House,n2013–2023
+## 1                        33,871,648                        !000053
+## 2                        20,851,820                        !000036
+## 3                        15,982,378                        !000027
+## 4                        18,976,457                        !000027
+## 5                        12,419,293                        !000018
+## 6                        12,281,054                        !000018
+##   Presi-ndentialnElectorsn2012–n2020
+## 1                                !000055
+## 2                                !000038
+## 3                                !000029
+## 4                                !000029
+## 5                                !000020
+## 6                                !000020
+##   2014 Estimated pop.npernHouse seat
+## 1                              732,123
+## 2                              748,804
+## 3                              736,789
+## 4                              731,342
+## 5                              715,588
+## 6                              710,401
+##   2010 Census pop.npernHousenseat[4] 2000 Census pop.npernHousenseat
+## 1                               702,905                            639,088
+## 2                               698,487                            651,619
+## 3                               696,345                            639,295
+## 4                               717,707                            654,361
+## 5                               712,813                            653,647
+## 6                               705,688                            646,371
+##   Percentnof totalnU.S. pop.,n2014[5]
+## 1                                 12.17%
+## 2                                  8.45%
+## 3                                  6.24%
+## 4                                  6.19%
+## 5                                  4.04%
+## 6                                  4.01%
